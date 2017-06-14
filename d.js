@@ -17,8 +17,25 @@ function Line(pointA, pointB) {
     }
 }
 
+
+
+function Trianle (pointA, pointB, pointC) {
+    this.pointA = pointA;
+    this.pointB = pointB;
+    this.pointC = pointC;
+
+    this.getPerimeter = function() {
+        const doanAB = new Line(this.pointA, this.pointB);
+        const doanAC = new Line(this.pointA, this.pointC);
+        const doanBC = new Line(this.pointB, this.pointC);
+        return doanAB.getLength() + doanAC.getLength() + doanBC.getLength();
+    }
+}
+
 const diemA = new Point(0, 1);
 const diemB = new Point(1, 0);
+const diemC = new Point(0, 0);
 
-const doanAB = new Line(diemA, diemB);
-console.log(doanAB.getLength());
+// const doanAB = new Line(diemA, diemB);
+const tamgiacABC = new Trianle(diemA, diemB, diemC);
+console.log(tamgiacABC.getPerimeter());

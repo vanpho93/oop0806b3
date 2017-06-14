@@ -9,6 +9,11 @@ class Person {
 }
 
 class Child extends Person {
+
+    static getAllChild() {
+        return 10;    
+    };
+
     constructor(name, age, hobby) {
         super(name, age);
         this.hobby = hobby;
@@ -26,6 +31,8 @@ const pho = new Person('Pho', 18);
 const teo = new Child('Teo', 5, 'Plane');
 console.log(teo);
 teo.sayHello();
+
+console.log(Child.getAllChild());
 
 // Person.prototype.sayHello = function() {
 //     console.log('Xin chao, toi la ' + this.name);

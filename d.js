@@ -1,30 +1,67 @@
-function Point(pX, pY) {
-    this.x = pX;
-    this.y = pY;
-    this.getDistance = function() {
+// function Point(pX, pY) {
+//     this.x = pX;
+//     this.y = pY;
+//     this.getDistance = function() {
+//         return Math.sqrt(this.x * this.x + this.y * this.y);
+//     }
+// }
+
+class Point {
+    constructor(pX, pY) {
+        this.x = pX;
+        this.y = pY;
+    }
+
+    getDistance() {
         return Math.sqrt(this.x * this.x + this.y * this.y);
     }
 }
 
-function Line(pointA, pointB) {
-    this.pointA = pointA;
-    this.pointB = pointB;
+// function Line(pointA, pointB) {
+//     this.pointA = pointA;
+//     this.pointB = pointB;
 
-    this.getLength = function() {
+//     this.getLength = function() {
+//         const dx = this.pointA.x - this.pointB.x;
+//         const dy = this.pointA.y - this.pointB.y;
+//         return Math.sqrt(dx * dx + dy * dy);
+//     }
+// }
+
+class Line {
+    constructor(pointA, pointB) {
+        this.pointA = pointA;
+        this.pointB = pointB;
+    }
+
+    getLength() {
         const dx = this.pointA.x - this.pointB.x;
         const dy = this.pointA.y - this.pointB.y;
         return Math.sqrt(dx * dx + dy * dy);
     }
 }
 
+// function Trianle(pointA, pointB, pointC) {
+//     this.pointA = pointA;
+//     this.pointB = pointB;
+//     this.pointC = pointC;
 
+//     this.getPerimeter = function () {
+//         const doanAB = new Line(this.pointA, this.pointB);
+//         const doanAC = new Line(this.pointA, this.pointC);
+//         const doanBC = new Line(this.pointB, this.pointC);
+//         return doanAB.getLength() + doanAC.getLength() + doanBC.getLength();
+//     }
+// }
 
-function Trianle (pointA, pointB, pointC) {
-    this.pointA = pointA;
-    this.pointB = pointB;
-    this.pointC = pointC;
+class Triangle {
+    constructor(pointA, pointB, pointC) {
+        this.pointA = pointA;
+        this.pointB = pointB;
+        this.pointC = pointC;
+    }
 
-    this.getPerimeter = function() {
+    getPerimeter() {
         const doanAB = new Line(this.pointA, this.pointB);
         const doanAC = new Line(this.pointA, this.pointC);
         const doanBC = new Line(this.pointB, this.pointC);
@@ -37,5 +74,5 @@ const diemB = new Point(1, 0);
 const diemC = new Point(0, 0);
 
 // const doanAB = new Line(diemA, diemB);
-const tamgiacABC = new Trianle(diemA, diemB, diemC);
+const tamgiacABC = new Triangle(diemA, diemB, diemC);
 console.log(tamgiacABC.getPerimeter());
